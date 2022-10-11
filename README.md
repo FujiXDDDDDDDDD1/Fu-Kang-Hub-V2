@@ -1216,10 +1216,10 @@ function AttackNoCD()
         end
         bladehit = cac
         if #bladehit > 0 then
-            local u8 = debug.getupvalue(AC.attack, 5)
-            local u9 = debug.getupvalue(AC.attack, 6)
+            local u8 = debug.getupvalue(AC.attack, 2)
+            local u9 = debug.getupvalue(AC.attack, 4)
             local u7 = debug.getupvalue(AC.attack, 4)
-            local u10 = debug.getupvalue(AC.attack, 7)
+            local u10 = debug.getupvalue(AC.attack, 5)
             local u12 = (u8 * 798405 + u7 * 727595) % u9
             local u13 = u7 * 798405
             (function()
@@ -1228,10 +1228,10 @@ function AttackNoCD()
                 u7 = u12 - u8 * u9
             end)()
             u10 = u10 + 1
-            debug.setupvalue(AC.attack, 5, u8)
-            debug.setupvalue(AC.attack, 6, u9)
-            debug.setupvalue(AC.attack, 4, u7)
-            debug.setupvalue(AC.attack, 7, u10)
+            debug.setupvalue(AC.attack, 4, u8)
+            debug.setupvalue(AC.attack, 4, u9)
+            debug.setupvalue(AC.attack, 3, u7)
+            debug.setupvalue(AC.attack, 5, u10)
             pcall(function()
                 for k, v in pairs(AC.animator.anims.basic) do
                     v:Play()
