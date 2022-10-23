@@ -1218,8 +1218,8 @@ function AttackNoCD()
         if #bladehit > 0 then
             local u8 = debug.getupvalue(AC.attack, 3)
             local u9 = debug.getupvalue(AC.attack, 5)
-            local u7 = debug.getupvalue(AC.attack, 5)
-            local u10 = debug.getupvalue(AC.attack, 6)
+            local u7 = debug.getupvalue(AC.attack, 4)
+            local u10 = debug.getupvalue(AC.attack, 5)
             local u12 = (u8 * 798405 + u7 * 727595) % u9
             local u13 = u7 * 798405
             (function()
@@ -1228,7 +1228,7 @@ function AttackNoCD()
                 u7 = u12 - u8 * u9
             end)()
             u10 = u10 + 1
-            debug.setupvalue(AC.attack, 5, u8)
+            debug.setupvalue(AC.attack, 4, u8)
             debug.setupvalue(AC.attack, 5, u9)
             debug.setupvalue(AC.attack, 4, u7)
             debug.setupvalue(AC.attack, 6, u10)
