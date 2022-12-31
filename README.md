@@ -1093,12 +1093,24 @@ function CheckQuest()
             NQuest = "ChocQuest2"
             NameMon = "Sweet Thief"
             CFrameQuest = CFrame.new(151.1981201171875, 24.828855514526367, -12778.08984375)
-       elseif Level >= 2375 then
+       elseif Level == 2375 or Level <= 2399 then
             Mon = "Candy Rebel [Lv. 2375]"
             LQuest = 2
             NQuest = "ChocQuest2"
             NameMon = "Candy Rebel"
             CFrameQuest = CFrame.new(151.1981201171875, 24.828855514526367, -12778.08984375)
+        elseif Level == 2400 or Level <= 2424 then
+            Mon = "Candy Pirate [Lv. 2400]"
+            LQuest = 1
+            NQuest = "CandyQuest1"
+            NameMon = "Candy Pirate"
+            CFrameQuest = CFrame.new(-1149.328, 16.1133957, -14445.6143, -0.156446099, 0, -0.987686574, 0, 1, 0, 0.987686574, 0, -0.156446099)
+        elseif Level >= 2425 then
+            Mon = "Snow Demon [Lv. 2425]"
+            LQuest = 2
+            NQuest = "CandyQuest1"
+            NameMon = "Snow Demon"
+            CFrameQuest = CFrame.new(-1149.328, 16.1133957, -14445.6143, -0.156446099, 0, -0.987686574, 0, 1, 0, 0.987686574, 0, -0.156446099)
         end
     end
 end
@@ -1219,7 +1231,7 @@ function AttackNoCD()
             local u8 = debug.getupvalue(AC.attack, 3)
             local u9 = debug.getupvalue(AC.attack, 5)
             local u7 = debug.getupvalue(AC.attack, 4)
-            local u10 = debug.getupvalue(AC.attack, 5)
+            local u10 = debug.getupvalue(AC.attack, 6)
             local u12 = (u8 * 798405 + u7 * 727595) % u9
             local u13 = u7 * 798405
             (function()
@@ -1229,15 +1241,16 @@ function AttackNoCD()
             end)()
             u10 = u10 + 1
             debug.setupvalue(AC.attack, 4, u8)
-            debug.setupvalue(AC.attack, 5, u9)
+            debug.setupvalue(AC.attack, 6, u9)
             debug.setupvalue(AC.attack, 4, u7)
-            debug.setupvalue(AC.attack, 6, u10)
+            debug.setupvalue(AC.attack, 5, u10)
             pcall(function()
                 for k, v in pairs(AC.animator.anims.basic) do
                     v:Play()
                 end                  
             end)
             if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
+                AC.animator.anims.basic[1]:Play(0.01,0.01,0.01)
                 game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
                 game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
                 game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
